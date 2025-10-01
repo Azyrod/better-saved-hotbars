@@ -18,7 +18,7 @@ public class BetterSavedHotbars implements ModInitializer {
     public static String VERSION = "";
     public static String UPDATE_TAG = "";
     public static boolean IS_DEV_VERSION = false;
-    public static UpdateManager UPDATE_MANAGER = new UpdateManager();
+    public static final UpdateManager UPDATE_MANAGER = new UpdateManager();
     public static boolean UPDATE_AVAILABLE = false;
     public static boolean IS_UPDATE_FOR_THIS_VERSION = false;
     public static float LAST_SCROLL_OFFSET = 0;

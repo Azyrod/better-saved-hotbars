@@ -43,9 +43,7 @@ public abstract class MainScreenMixin extends Screen {
 
         var text = "";
         if(BetterSavedHotbars.IS_UPDATE_FOR_THIS_VERSION) {
-            text = "&7&oBetter Saved Hotbars update available";
-            fadeAfterTime = 10;
-            fadeTime = 5;
+            return;
         }
 
         startTime = System.currentTimeMillis();
