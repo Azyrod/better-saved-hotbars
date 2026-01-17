@@ -2,16 +2,17 @@
   "schemaVersion": 1,
   "id": "bettersavedhotbars",
   "version": "${version}",
-  "name": "Better Saved Hotbars",
+  "name": "Better Saved Hotbars Forked",
   "description": "This mod allows you to drag items into the saved hotbars tab and remove them by middle clicking!",
   "authors": [
-    "LukynkaCZE"
+    "LukynkaCZE", "Azyrod"
   ],
   "contact": {
-    "homepage": "https://lukynka.cloud/",
-    "sources": "https://github.com/LukynkaCZE/better-saved-hotbars"
+    "homepage": "https://modrinth.com/mod/better-saved-hotbars-forked",
+    "sources": "https://github.com/Azyrod/better-saved-hotbars",
+    "issues": "https://github.com/Azyrod/better-saved-hotbars/issues"
   },
-  "license": "MIT",
+  "license": "CC0 1.0 Universal",
   "icon": "assets/bettersavedhotbars/icon.png",
   "environment": "*",
   "entrypoints": {
