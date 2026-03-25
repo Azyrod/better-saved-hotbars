@@ -1,0 +1,29 @@
+name: Publish on Modrinth
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: "temurin"
+          java-version: 25
+
+      - name: Build
+        # run: ./gradlew -Pmod_version=${{ github.event.release.tag_name }} clean build
+        run: gradle clean build
+
+      - uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          modrinth-id: OSVw6Bfm
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

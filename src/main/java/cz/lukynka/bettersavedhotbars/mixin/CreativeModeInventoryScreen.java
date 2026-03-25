@@ -7,7 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -30,7 +30,7 @@ public abstract class CreativeModeInventoryScreen {
     @Shadow protected abstract void selectTab(CreativeModeTab creativeModeTab);
 
     @Inject(at = @At("HEAD"), method = "slotClicked", cancellable = true)
-    private void slotClicked(@Nullable Slot slot, int i, int j, ClickType clickType, CallbackInfo ci) {
+    private void slotClicked(@Nullable Slot slot, int i, int j, ContainerInput containerInput, CallbackInfo ci) {
         if (selectedTab.getType() != CreativeModeTab.Type.HOTBAR) return;
 
         if (slot == null) return;
@@ -45,7 +45,7 @@ public abstract class CreativeModeInventoryScreen {
         HotbarInfo newHotbarInfo = getHotbarWithIndex(slot);
 
         if (item.getItem() == Items.AIR) {
-            if (clickType == ClickType.CLONE) {
+            if (containerInput == ContainerInput.CLONE) {
                 ItemStack slotItem = slot.getItem();
                 slot.set(new ItemStack(Items.AIR, 0));
                 var hotbar = hotbarManager.get(newHotbarInfo.row());
@@ -57,7 +57,7 @@ public abstract class CreativeModeInventoryScreen {
             return;
         }
 
-        if (slot == null || !slot.getItem().isEmpty()) {
+        if (!slot.getItem().isEmpty()) {
             player.inventoryMenu.setCarried(ItemStack.EMPTY);
             return;
         }

@@ -1,4 +1,3 @@
-
 package cz.lukynka.bettersavedhotbars.updater;
 
 import com.google.gson.annotations.Expose;

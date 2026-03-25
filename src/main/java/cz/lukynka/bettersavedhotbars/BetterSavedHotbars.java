@@ -28,7 +28,7 @@ public class BetterSavedHotbars implements ModInitializer {
         Optional<ModContainer> container = FabricLoader.getInstance().getModContainer("bettersavedhotbars");
         container.ifPresent(modContainer -> VERSION = modContainer.getMetadata().getVersion().getFriendlyString());
 
-        PayloadTypeRegistry.playC2S().register(ModInstalledPacket.TYPE, ModInstalledPacket.STREAM_CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(ModInstalledPacket.TYPE, ModInstalledPacket.STREAM_CODEC);
 
         ClientPlayConnectionEvents.JOIN.register((listener, sender, client) -> {
             sender.sendPacket(new ModInstalledPacket(VERSION));
